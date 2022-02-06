@@ -1,8 +1,11 @@
 {
     "version": "0.6.0.3",
-    "url": "https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v0.6.0.3/OpenTabletDriver.win-x64.zip",
-    "hash": "",
-    "architecture": "64bit",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v0.6.0.3/OpenTabletDriver.win-x64.zip",
+            "hash": ""
+        }   
+    }
     "autoupdate": {
         "note": "Thanks for using autoupdate, please test your updates!",
         "architecture": {
