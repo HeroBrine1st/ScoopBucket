@@ -1,38 +1,36 @@
 {
-  "version": "0.6.0.3",
-  "url": "https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v0.6.0.3/OpenTabletDriver.win-x64.zip",
-  "hash": "9e790a56a886a8770dca13f7c3afb921f1dd2e87e228d433376147320b45b566",
-  "autoupdate": {
-    "note": "Thanks for using autoupdate, please test your updates!",
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v$version/OpenTabletDriver.win-x64.zip"
+    "version": "0.6.0.3",
+    "url": "https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v0.6.0.3/OpenTabletDriver.win-x64.zip",
+    "hash": "",
+    "autoupdate": {
+        "note": "Thanks for using autoupdate, please test your updates!",
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v$version/OpenTabletDriver.win-x64.zip"
+            }
         }
+    },
+    "homepage": "https://github.com/OpenTabletDriver/OpenTabletDriver",
+    "checkver": "github",
+    "shortcuts": [
+        [
+            "OpenTabletDriver.UX.Wpf.exe",
+            "OpenTabletDriver"
+        ]
+    ],
+    "notes": "This app requires .NET Runtime which is absent in scoop repositories: https://dotnet.microsoft.com/download/dotnet/5.0/runtime",
+    "post_install": [
+        "$data_dir = \"$env:LOCALAPPDATA/OpenTabletDriver\"",
+        "$persist_data_dir = \"$persist_dir/data\"",
+        "if (Test-Path -Path \"$data_dir\") {",
+        "  echo \"Found previous non-scoop installation files; persisting it so that you won't need to configure it again\"",
+        "  Move-Item -Path \"$data_dir/*\" -Destination \"$persist_data_dir\" -Force",
+        "  Remove-Item -Path \"$data_dir\" -Recurse -Force",
+        "}",
+        "New-Item -Path \"$data_dir\" -ItemType Junction -Value \"$persist_data_dir\" | Out-Null"
+    ],
+    "persist": "data",
+    "uninstaller": {
+        "script": "Remove-Item -Path \"$env:LOCALAPPDATA/OpenTabletDriver\" -Force"
     }
-  },
-  "homepage": "https://github.com/OpenTabletDriver/OpenTabletDriver",
-  "checkver": "github",
-  "shortcuts": [
-      [
-        "OpenTabletDriver.UX.Wpf.exe",
-        "OpenTabletDriver",
-      ]
-  ],
-  "notes": "This app requires .NET Runtime which is absent in scoop repositories: https://dotnet.microsoft.com/download/dotnet/5.0/runtime",
-  "post_install": [
-    "$data_dir = \"$env:LOCALAPPDATA/OpenTabletDriver\"",
-    "$persist_data_dir = \"$persist_dir/data\"",
-    "if (Test-Path -Path \"$data_dir\") {",
-    "  echo \"Found previous non-scoop installation files; persisting it so that you won't need to configure it again\"",
-    "  Move-Item -Path \"$data_dir/*\" -Destination \"$persist_data_dir\" -Force",
-    "  Remove-Item -Path \"$data_dir\" -Recurse -Force",
-    "}",
-    "New-Item -Path \"$data_dir\" -ItemType Junction -Value \"$persist_data_dir\" | Out-Null",
-  ],
-  "persist": "data",
-  "uninstaller": {
-    "script": [
-      "Remove-Item -Path \"$env:LOCALAPPDATA/OpenTabletDriver\" -Force"
-    ]
-  }
 }
