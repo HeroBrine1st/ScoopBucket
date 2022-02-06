@@ -1,2 +1,2 @@
 # ScoopBucket
-My scoop bucket
+My [scoop](https://github.com/ScoopInstaller/Scoop) bucket
