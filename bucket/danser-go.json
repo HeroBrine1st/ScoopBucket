@@ -16,6 +16,6 @@
     },
     "homepage": "https://github.com/Wieku/danser-go",
     "checkver": "github",
-    "persist": "settings",
+    "persist": ["settings", "songs", "skins"],
     "bin": "danser.exe"
 }
