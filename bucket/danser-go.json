@@ -1,0 +1,20 @@
+{
+    "version": "0.6.8",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Wieku/danser-go/releases/download/0.6.8/danser-0.6.8-win.zip",
+            "hash": ""
+        }   
+    },
+    "autoupdate": {
+        "note": "Thanks for using autoupdate, please test your updates!",
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Wieku/danser-go/releases/download/$version/danser-0.6.8-win.zip"
+            }
+        }
+    },
+    "homepage": "https://github.com/Wieku/danser-go",
+    "checkver": "github",
+    "persist": "settings"
+}
